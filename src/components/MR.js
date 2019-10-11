@@ -32,7 +32,7 @@ const MR = inject("store")(observer(({ store, d2 }) => {
     });
     return (
         <Row gutter={8} >
-            <Col span={19} style={{ marginTop: 8,minHeight:'80vh',background:'yellow' }}>
+            <Col span={19} style={{ marginTop: 8, minHeight: '80vh' }}>
                 <Menu
                     className="headers"
                     mode="horizontal"
@@ -64,7 +64,7 @@ const MR = inject("store")(observer(({ store, d2 }) => {
                                         <span className="big-number-rr">56.8%</span>
                                         <span style={{ margin: -15 }}>Reporting Rate</span>
                                     </div>
-                                    <Progress showInfo={false}  type="circle" percent={56.8} width={80} strokeWidth={15} style={{ width: '50%', textAlign: "center" }} />
+                                    <Progress showInfo={false} type="circle" percent={56.8} width={80} strokeWidth={15} style={{ width: '50%', textAlign: "center" }} />
                                 </Col>
                             </Row>
                         </Card>
@@ -86,10 +86,10 @@ const MR = inject("store")(observer(({ store, d2 }) => {
                                 </Col>
                                 <Col span={10} className="flex-center">
                                     <div style={{ width: '50%', textAlign: "center", display: 'flex', flexDirection: 'column' }}>
-                                        <span className="big-number-cv">{store.textValues.children_vaccinated * 100 / store.textValues.target_population}%</span>
+                                        <span className="big-number-cv">{(store.textValues.children_vaccinated * 100 / store.textValues.target_population).toFixed(1)}%</span>
                                         <span style={{ margin: -15 }}>MR Coverage</span>
                                     </div>
-                                    <Progress strokeWidth={12} showInfo={false}  type="circle" percent={store.textValues.children_vaccinated * 100 / store.textValues.target_population} width={80} style={{ width: '50%', textAlign: "center" }} />
+                                    <Progress strokeWidth={12} showInfo={false} type="circle" percent={(store.textValues.children_vaccinated * 100 / store.textValues.target_population).toFixed(1)} width={80} style={{ width: '50%', textAlign: "center" }} />
                                 </Col>
                             </Row>
                         </Card>
@@ -129,7 +129,7 @@ const MR = inject("store")(observer(({ store, d2 }) => {
                         <Card>
                             <div id="chartdiv" style={{ width: "100%", height: "250px" }}></div>
                         </Card>
-                        <Card style={{ marginTop: 8}}>
+                        <Card style={{ marginTop: 8 }}>
                             <MapChart options={store.map} />
                         </Card>
                     </Col>

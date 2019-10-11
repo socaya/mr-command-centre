@@ -158,7 +158,7 @@ export const Store = types
             return {
                 chart: {
                     type: 'column',
-                    height:'60%'
+                    height: '60%'
                 },
                 xAxis: {
                     type: 'category'
@@ -208,7 +208,7 @@ export const Store = types
             return {
                 chart: {
                     type: 'column',
-                    height:'60%'
+                    height: '60%'
                 },
                 xAxis: {
                     type: 'category'
@@ -271,11 +271,10 @@ export const Store = types
             return {
                 chart: {
                     type: 'column',
-                    height:'60%'
+                    height: '60%'
                 },
                 xAxis: {
-                    type: 'category',
-                    height:'60%'
+                    type: 'category'
                 },
 
                 legend: {
@@ -339,7 +338,7 @@ export const Store = types
             return {
                 chart: {
                     type: 'column',
-                    height:'60%'
+                    height: '60%'
                 },
                 xAxis: {
                     type: 'category'
@@ -709,7 +708,8 @@ export const Store = types
                 axis2.invalidate();
             });
 
-            var value = self.textValues.children_vaccinated * 100 / self.textValues.target_population;
+            // var value = (self.textValues.children_vaccinated * 100 / self.textValues.target_population).toFixed(1);
+            var value = (self.textValues.children_vaccinated * 100 / self.textValues.target_population).toFixed(1) >= 100 ? 100 : (self.textValues.children_vaccinated * 100 / self.textValues.target_population).toFixed(1);
             label.text = value + "%";
             new am4core.Animation(hand, {
                 property: "value",
